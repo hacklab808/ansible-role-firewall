@@ -60,6 +60,9 @@ iptables -A INPUT -p tcp -m tcp --dport {{ port }} -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport {{ port }} -j ACCEPT
 {% endfor %}
 
+iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT 
+#add ssh open to insure ytou dont get kicked off
+
 # Accept icmp ping requests.
 iptables -A INPUT -p icmp -j ACCEPT
 
